@@ -1,0 +1,12 @@
+{
+  "regexManagers": [
+    {
+      "fileMatch": ["\\.html$"],
+      "matchStrings": [
+        "coveo\\.analytics\\.js/(?<currentValue>[0-9.]+)/coveoua\\.js"
+      ],
+      "depNameTemplate": "coveo.analytics.js",
+      "datasourceTemplate": "npm"
+    }
+  ]
+}

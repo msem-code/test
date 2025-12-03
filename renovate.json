@@ -6,7 +6,9 @@
         "coveo\\.analytics\\.js/(?<currentValue>[0-9.]+)/coveoua\\.js"
       ],
       "depNameTemplate": "coveo.analytics.js",
-      "datasourceTemplate": "npm"
+      "datasourceTemplate": "github-releases",
+      "lookupNameTemplate": "coveo/coveo.analytics.js",
+      "versioningTemplate": "semver"
     }
   ]
 }

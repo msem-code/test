@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="English">
+<meta name="pageLanguage" content="Spanish">
+<head>
+  <title>Atomic Search Page</title>
+  <script type="module" src="https://static.cloud.coveo.com/atomic/v3.36.0/atomic.esm.js"></script>
+  <script type="text/javascript" src="https://static.cloud.coveo.com/coveo.analytics.js/2/coveoua.js"></script>
+  <link rel="stylesheet" href="https://static.cloud.coveo.com/atomic/v3.36.0/themes/coveo.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <atomic-search-interface
+    pipeline="msem-atomic-search"
+    id="search"
+    fields-to-include='["ytlikecount","ytviewcount","ytthumbnailurl","ytviewrating"]'>
+    <atomic-facet-manager>
+      <atomic-facet field="source" label="Source"></atomic-facet>
+    </atomic-facet-manager>
+    <atomic-did-you-mean query-correction-mode="legacy"></atomic-did-you-mean>  
+    <atomic-search-layout>
+      <atomic-layout-section section="search">
+        <atomic-query-summary></atomic-query-summary>
+        <atomic-search-box maxResultsPerQuery="50">
+          <atomic-search-box-query-suggestions></atomic-search-box-query-suggestions>
+        </atomic-search-box>
+      <atomic-notifications></atomic-notifications>
+      </atomic-layout-section>
+      <atomic-layout-section section="main">
+        <atomic-layout-section section="status">
+          <atomic-sort-dropdown>
+            <atomic-sort-expression label="Relevance" expression="relevancy,ytlikecount descending"></atomic-sort-expression>
+            <atomic-sort-expression label="Date" expression="date descending"></atomic-sort-expression>
+          </atomic-sort-dropdown>
+        </atomic-layout-section>
+        <atomic-result-list image-size="icon" display="List">
+          <atomic-result-template>
+            <template>
+              <atomic-result-link></atomic-result-link>
+            </template>
+          </atomic-result-template>
+        </atomic-result-list>
+        <atomic-query-error></atomic-query-error>
+      </atomic-layout-section>
+    </atomic-search-layout>
+  </atomic-search-interface>
+
+  
+  
+
+  <!-- SCRIPT TO INITIALIZE SEARCH INTERFACE -->
+  <script>
+    (async () => {
+      await customElements.whenDefined("atomic-search-interface");
+      const searchInterface = document.querySelector("#search");
+      await searchInterface.initialize({
+        analytics: {analyticsMode: 'legacy'},
+        accessToken: "xx49922ce2-9f8a-4c20-92cc-f5e38956c620",
+        //"xx7b75fd92-8855-4a3a-9758-aa395c956d66",
+        organizationId: "coveotechnicalsupportsc619qqkte"
+      });
+      searchInterface.executeFirstSearch();
+    })();
+    const searchInterface = document.querySelector('atomic-search-interface');
+searchInterface.language = 'fr';
+
+  </script>
+
+</body>
+</html>

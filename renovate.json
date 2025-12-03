@@ -1,13 +1,12 @@
 {
   "regexManagers": [
     {
-      "fileMatch": ["\\.html$"],
+      "fileMatch": ["index.html", ".*\\.html$"],
       "matchStrings": [
-        "coveo\\.analytics\\.js/(?<currentValue>[0-9.]+)/coveoua\\.js"
+        "https://static\\.cloud\\.coveo\\.com/coveo\\.analytics\\.js/(?<currentValue>[^/]+)/coveoua\\.js"
       ],
-      "depNameTemplate": "coveo.analytics.js",
-      "datasourceTemplate": "github-releases",
-      "lookupNameTemplate": "coveo/coveo.analytics.js",
+      "datasourceTemplate": "npm",
+      "packageNameTemplate": "coveo.analytics",
       "versioningTemplate": "semver"
     }
   ]
